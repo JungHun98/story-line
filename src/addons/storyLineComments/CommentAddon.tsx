@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useStorybookState } from "@storybook/api";
+import supabase from "../../utils/supabase";
 
 const CommentAddon = () => {
   const [comments, setComments] = useState<string[]>([]);
-  const [newComment, setNewComment] = useState('');
+  const [newComment, setNewComment] = useState("");
+  const state = useStorybookState();
 
-  const handleAddComment = () => {
+  const handleAddComment = async () => {
     if (newComment) {
-      setComments([...comments, newComment]);
-      setNewComment('');
+      const { data, error } = await supabase
+        .from("Comment")
+        .insert([{ description: newComment, story_id: state.storyId }])
+        .select();
+
+      setNewComment("");
     }
   };
 
