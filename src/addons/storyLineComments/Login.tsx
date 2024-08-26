@@ -28,7 +28,7 @@ const Login = () => {
 
   return (
     <LoginTag>
-      <button onClick={() => googleSignIn()}>登陆</button>
+      <button onClick={() => googleSignIn()}>로그인</button>
     </LoginTag>
   );
 };

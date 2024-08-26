@@ -6,9 +6,14 @@ import StoryComment from "./StoryComment";
 import supabase from "../../utils/supabase";
 import { User } from "@supabase/supabase-js";
 
+import styled from "@emotion/styled";
+
+const Box = styled.div`
+  height: 100%;
+`;
+
 const CommentAddon = () => {
   const [userInfo, setUserInfo] = useState<User | null>(null);
-  // const state = useStorybookState();
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -20,22 +25,11 @@ const CommentAddon = () => {
     getUserInfo();
   });
 
-  // const handleAddComment = async () => {
-  //   if (newComment) {
-  //     const { data, error } = await supabase
-  //       .from("Comment")
-  //       .insert([{ description: newComment, story_id: state.storyId }])
-  //       .select();
-
-  //     setNewComment("");
-  //   }
-  // };
-
   return (
-    <div>
+    <Box>
       <CommentList />
       <StoryComment />
-    </div>
+    </Box>
   );
 };
 
