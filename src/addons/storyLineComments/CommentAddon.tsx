@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useStorybookState } from "@storybook/api";
 import supabase from "../../utils/supabase";
+import Login from "./Login";
 
 const CommentAddon = () => {
   const [comments, setComments] = useState<string[]>([]);
@@ -29,7 +30,9 @@ const CommentAddon = () => {
           placeholder="Add a comment"
         />
         <button onClick={handleAddComment}>Add</button>
+        <Login></Login>
       </div>
+
       <ul>
         {comments.map((comment, index) => (
           <li key={index}>{comment}</li>

@@ -1,7 +1,7 @@
-import React from 'react';
-import { addons, types  } from '@storybook/addons';
-import { AddonPanel } from '@storybook/components';
-import CommentAddon from './CommentAddon';
+import React from "react";
+import { addons, types } from "@storybook/addons";
+import { AddonPanel } from "@storybook/components";
+import CommentAddon from "./CommentAddon";
 
 const CommentPanel = (props: any) => {
   return (
@@ -11,9 +11,9 @@ const CommentPanel = (props: any) => {
   );
 };
 
-addons.register('storybook/comment-addon', () => {
-  addons.add('storybook/comment-panel', {
-    title: 'Comments',
+addons.register("storybook/comment-addon", () => {
+  addons.add("storybook/comment-panel", {
+    title: "Comments",
     type: types.PANEL,
     render: CommentPanel,
   });
