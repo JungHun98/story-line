@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@emotion/css": "^11.13.0",
     "@storybook/api": "^7.6.17",
     "@supabase/supabase-js": "^2.45.1",
     "@types/react": "^18.3.3",
