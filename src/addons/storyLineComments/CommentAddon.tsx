@@ -1,58 +1,40 @@
 import React, { useState, useEffect, memo } from "react";
-import { useStorybookState } from "@storybook/api";
+
+import CommentList from "./CommentList";
+import StoryComment from "./StoryComment";
+
 import supabase from "../../utils/supabase";
-import Login from "./Login";
-import { Comment } from "../../../@types/comment";
+import { User } from "@supabase/supabase-js";
 
 const CommentAddon = () => {
-  const [comments, setComments] = useState<string[]>([]);
-  const [newComment, setNewComment] = useState("");
-  const state = useStorybookState();
+  const [userInfo, setUserInfo] = useState<User | null>(null);
+  // const state = useStorybookState();
 
   useEffect(() => {
-    const getComments = async () => {
-      let { data, error } = await supabase
-        .from("Comment")
-        .select("*")
-        .eq("story_id", state.storyId);
+    const getUserInfo = async () => {
+      let { data } = await supabase.auth.getUser();
 
-      const comments: Comment[] = data!;
-      setComments(comments.map((elem) => elem.description));
+      setUserInfo(data.user);
     };
 
-    getComments();
-  }, [state.storyId]);
+    getUserInfo();
+  });
 
-  const handleAddComment = async () => {
-    if (newComment) {
-      const { data, error } = await supabase
-        .from("Comment")
-        .insert([{ description: newComment, story_id: state.storyId }])
-        .select();
+  // const handleAddComment = async () => {
+  //   if (newComment) {
+  //     const { data, error } = await supabase
+  //       .from("Comment")
+  //       .insert([{ description: newComment, story_id: state.storyId }])
+  //       .select();
 
-      setNewComment("");
-    }
-  };
+  //     setNewComment("");
+  //   }
+  // };
 
   return (
     <div>
-      <h3>Comments</h3>
-      <div>
-        <input
-          type="text"
-          value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
-          placeholder="Add a comment"
-        />
-        <button onClick={handleAddComment}>Add</button>
-        <Login></Login>
-      </div>
-
-      <ul>
-        {comments.map((comment, index) => (
-          <li key={index}>{comment}</li>
-        ))}
-      </ul>
+      <CommentList />
+      <StoryComment />
     </div>
   );
 };
