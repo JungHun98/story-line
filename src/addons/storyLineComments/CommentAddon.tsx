@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { useStorybookState } from "@storybook/api";
 import supabase from "../../utils/supabase";
 import Login from "./Login";
+import { Comment } from "../../../@types/comment";
 
 const CommentAddon = () => {
   const [comments, setComments] = useState<string[]>([]);
   const [newComment, setNewComment] = useState("");
   const state = useStorybookState();
+
+  useEffect(() => {
+    const getComments = async () => {
+      let { data, error } = await supabase
+        .from("Comment")
+        .select("*")
+        .eq("story_id", state.storyId);
+
+      const comments: Comment[] = data!;
+      setComments(comments.map((elem) => elem.description));
+    };
+
+    getComments();
+  }, [state.storyId]);
 
   const handleAddComment = async () => {
     if (newComment) {
@@ -42,4 +57,4 @@ const CommentAddon = () => {
   );
 };
 
-export default CommentAddon;
+export default memo(CommentAddon);
