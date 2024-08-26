@@ -23,7 +23,7 @@ const CommentAddon = () => {
     };
 
     getUserInfo();
-  });
+  }, []);
 
   return (
     <Box>
