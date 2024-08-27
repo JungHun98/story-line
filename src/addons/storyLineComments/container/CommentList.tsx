@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import supabase from "../../utils/supabase";
+import supabase from "../../../utils/supabase";
 import { useStorybookApi } from "@storybook/api";
-import { Comment } from "../../../@types/comment";
+import { Comment } from "../../../../@types/comment";
 
 function CommentList() {
   const [commentList, setCommentList] = useState<string[]>([]);

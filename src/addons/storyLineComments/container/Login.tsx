@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@storybook/theming";
-import supabase from "../../utils/supabase";
+import supabase from "../../../utils/supabase";
 
 const LoginTag = styled.div`
   display: flex;

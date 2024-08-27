@@ -1,7 +1,7 @@
 import React, { useState, useEffect, memo } from "react";
 
-import CommentList from "./CommentList";
-import StoryComment from "./StoryComment";
+import CommentList from "./container/CommentList";
+import StoryComment from "./container/StoryComment";
 
 import supabase from "../../utils/supabase";
 import { User } from "@supabase/supabase-js";
@@ -20,6 +20,7 @@ const CommentAddon = () => {
       let { data } = await supabase.auth.getUser();
 
       setUserInfo(data.user);
+      console.log(data);
     };
 
     getUserInfo();
