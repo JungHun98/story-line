@@ -23,15 +23,16 @@ const CommentAddon = () => {
       console.log(data);
     };
 
-    getUserInfo();
+    // getUserInfo();
   }, []);
 
   return (
     <Box>
+      0000
       <CommentList />
       <StoryComment />
     </Box>
   );
 };
 
-export default memo(CommentAddon);
+export default CommentAddon;

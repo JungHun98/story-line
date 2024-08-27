@@ -14,6 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Profile: Story = {
   args: {
-    imageSrc: "",
+    imageSrc:
+      "https://lh3.googleusercontent.com/a/ACg8ocJHMjcbMmsGk1fPCYUDUENNn749ieiSxnFByp0qQXWuQN3fGQ=s576-c-no",
   },
 };
