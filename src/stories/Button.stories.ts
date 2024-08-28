@@ -26,12 +26,18 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Update: Story = {
   args: {
-    innerText: "수정1",
+    innerText: "수정",
   },
 };
 
 export const Delete: Story = {
   args: {
     innerText: "삭제",
+  },
+};
+
+export const Create: Story = {
+  args: {
+    innerText: "피드백 등록",
   },
 };

@@ -24,6 +24,7 @@ const Input = styled.textarea`
   border-style: solid;
   border-radius: 4px;
   height: 80px;
+  resize: none;
 `;
 
 function TextArea() {
