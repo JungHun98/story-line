@@ -12,4 +12,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Contanier: Story = {};
+export const Contanier: Story = {
+  args: {
+    isLogin: true,
+  },
+};

@@ -30,7 +30,7 @@ const CommentAddon = () => {
     <Box>
       0000
       <CommentList />
-      <StoryComment />
+      <StoryComment isLogin={userInfo !== null} />
     </Box>
   );
 };

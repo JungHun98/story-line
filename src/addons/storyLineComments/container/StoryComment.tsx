@@ -2,6 +2,11 @@ import React from "react";
 import TextArea from "../components/TextArea";
 import EditButton from "../components/EditButton";
 import styled from "@emotion/styled";
+import LoginButton from "../components/LoginButton";
+
+interface Props {
+  isLogin: boolean;
+}
 
 const Box = styled.div`
   display: flex;
@@ -11,7 +16,7 @@ const Box = styled.div`
 
 const ButtonBox = styled.div``;
 
-function StoryComment() {
+function StoryComment({ isLogin }: Props) {
   // 로그인
   // open close toggle
   // post 요청 예외상황 처리
@@ -20,7 +25,11 @@ function StoryComment() {
     <Box>
       <TextArea />
       <ButtonBox>
-        <EditButton innerText="등록" onClick={() => {}}></EditButton>
+        {isLogin ? (
+          <EditButton innerText="등록" onClick={() => {}} />
+        ) : (
+          <LoginButton />
+        )}
       </ButtonBox>
     </Box>
   );
