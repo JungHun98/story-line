@@ -14,6 +14,7 @@ const Box = styled.div`
   width: 100%;
   display: flex;
   gap: 10px;
+  margin-bottom: 5px;
 `;
 
 function CommentBox({ id, content, imageSrc, isSameUser }: Props) {

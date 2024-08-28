@@ -4,6 +4,17 @@ import { useStorybookState } from "@storybook/api";
 import { Comment } from "../../../../@types/comment";
 import CommentBox from "./CommentBox";
 import { User } from "@supabase/auth-js/dist/module/lib/types";
+import styled from "@emotion/styled";
+
+const Box = styled.div`
+  flex: 1;
+  padding: 10px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 function CommentList() {
   const [commentList, setCommentList] = useState<Comment[]>([]);
@@ -35,7 +46,7 @@ function CommentList() {
   }, [state.storyId]);
 
   return (
-    <div>
+    <Box>
       {commentList.map((comment) => {
         return (
           <CommentBox
@@ -47,7 +58,7 @@ function CommentList() {
           />
         );
       })}
-    </div>
+    </Box>
   );
 }
 

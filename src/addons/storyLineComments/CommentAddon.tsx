@@ -9,6 +9,10 @@ import { User } from "@supabase/supabase-js";
 import styled from "@emotion/styled";
 
 const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
   height: 100%;
 `;
 
