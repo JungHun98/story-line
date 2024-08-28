@@ -18,7 +18,7 @@ function CommentList() {
       setCommentList(comments.map((elem) => elem.description));
     };
 
-    getComments();
+    // getComments();
   }, [state.storyId]);
 
   return <div></div>;
