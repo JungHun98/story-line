@@ -10,6 +10,7 @@ interface Props {
 
 const Container = styled.div`
   display: flex;
+  flex: 1;
 `;
 
 const ContentBox = styled.div`
@@ -38,13 +39,11 @@ function Comment({ id, content, isSameUser }: Props) {
       <ContentBox>
         <p>{content}</p>
       </ContentBox>
-      <ButtonBox>
-        {isSameUser ? (
-          <>
-            <EditButton innerText="삭제" onClick={() => {}} />
-          </>
-        ) : null}
-      </ButtonBox>
+      {isSameUser ? (
+        <ButtonBox>
+          <EditButton innerText="삭제" onClick={() => {}} />
+        </ButtonBox>
+      ) : null}
     </Container>
   );
 }
