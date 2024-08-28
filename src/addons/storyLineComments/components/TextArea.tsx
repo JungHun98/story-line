@@ -13,7 +13,7 @@ const Box = styled.div`
 `;
 
 const Input = styled.textarea`
-  padding: 5px 16px;
+  padding: 5px 10px;
   box-sizing: border-box;
   flex-basis: 0px;
   -webkit-box-flex: 1;
