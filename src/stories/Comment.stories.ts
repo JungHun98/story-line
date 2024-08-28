@@ -17,6 +17,6 @@ export const CommentBox: Story = {
   args: {
     id: 1,
     content: "",
-    isLogin: true,
+    isSameUser: true,
   },
 };

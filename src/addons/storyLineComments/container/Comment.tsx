@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 interface Props {
   id: number;
   content: string;
-  isLogin: boolean;
+  isSameUser: boolean;
 }
 
 const Container = styled.div`
@@ -30,7 +30,7 @@ const ButtonBox = styled.div`
   margin-left: 10px;
 `;
 
-function Comment({ id, content, isLogin }: Props) {
+function Comment({ id, content, isSameUser }: Props) {
   const deleteComment = () => {};
 
   return (
@@ -39,7 +39,7 @@ function Comment({ id, content, isLogin }: Props) {
         <p>{content}</p>
       </ContentBox>
       <ButtonBox>
-        {isLogin ? (
+        {isSameUser ? (
           <>
             <EditButton innerText="삭제" onClick={() => {}} />
           </>
