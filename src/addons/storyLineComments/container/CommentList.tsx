@@ -29,7 +29,6 @@ function CommentList() {
 
       const userInfo = await supabase.auth.getUser();
       setUserInfo(userInfo.data.user);
-      console.log(comments);
     };
 
     init();
@@ -43,7 +42,7 @@ function CommentList() {
             key={comment.id}
             id={comment.id}
             content={comment.description}
-            imageSrc={userInfo?.user_metadata.avatar_url}
+            imageSrc={comment.profile_url}
             isSameUser={isSameUser(comment.user_email)}
           />
         );

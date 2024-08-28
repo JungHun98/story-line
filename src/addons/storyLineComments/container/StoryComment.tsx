@@ -23,7 +23,7 @@ function StoryComment({ isLogin }: Props) {
 
   return (
     <Box>
-      <TextArea />
+      <TextArea isLogin />
       <ButtonBox>
         {isLogin ? (
           <EditButton innerText="등록" onClick={() => {}} />

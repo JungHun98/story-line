@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 
+interface Props {
+  isLogin: boolean;
+}
 const Box = styled.div`
   width: 80%;
   height: auto;
@@ -27,10 +30,10 @@ const Input = styled.textarea`
   resize: none;
 `;
 
-function TextArea() {
+function TextArea({ isLogin }: Props) {
   return (
     <Box>
-      <Input />
+      <Input disabled={isLogin} />
     </Box>
   );
 }
