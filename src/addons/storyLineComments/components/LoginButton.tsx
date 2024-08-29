@@ -8,9 +8,9 @@ interface Props {
 const Box = styled.div`
   cursor: pointer;
 `;
-function LoginButton() {
+function LoginButton({ onClick }: Props) {
   return (
-    <Box>
+    <Box onClick={onClick}>
       <img src="../src/addons/storyLineComments/assets/image.png" />
     </Box>
   );

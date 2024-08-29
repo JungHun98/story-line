@@ -33,7 +33,7 @@ const Input = styled.textarea`
 function TextArea({ isLogin }: Props) {
   return (
     <Box>
-      <Input disabled={isLogin} />
+      <Input disabled={!isLogin} />
     </Box>
   );
 }

@@ -24,10 +24,9 @@ const CommentAddon = () => {
       let { data } = await supabase.auth.getUser();
 
       setUserInfo(data.user);
-      console.log(data);
     };
 
-    // getUserInfo();
+    getUserInfo();
   }, []);
 
   return (
