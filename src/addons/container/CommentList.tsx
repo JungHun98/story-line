@@ -2,8 +2,8 @@ import React from "react";
 import CommentBox from "./CommentBox";
 import { User } from "@supabase/auth-js/dist/module/lib/types";
 import styled from "@emotion/styled";
-import { Comment } from "../../../../@types/comment";
-import supabase from "../../../utils/supabase";
+import { Comment } from "../../@types/comment";
+import supabase from "../utils/supabase";
 
 interface Props {
   userInfo: User | null;

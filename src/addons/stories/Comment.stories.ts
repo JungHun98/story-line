@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Comment from "../addons/storyLineComments/container/Comment";
+import Comment from "../container/Comment";
 
 const meta = {
   title: "Example/TextBox",

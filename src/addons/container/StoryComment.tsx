@@ -3,10 +3,10 @@ import TextArea from "../components/TextArea";
 import EditButton from "../components/EditButton";
 import styled from "@emotion/styled";
 import LoginButton from "../components/LoginButton";
-import supabase from "../../../utils/supabase";
+import supabase from "../utils/supabase";
 import { User } from "@supabase/supabase-js";
 import { useStorybookState } from "@storybook/api";
-import { Comment } from "../../../../@types/comment";
+import { Comment } from "../../@types/comment";
 
 interface Props {
   userInfo: User | null;

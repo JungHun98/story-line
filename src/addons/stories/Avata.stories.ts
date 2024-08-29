@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Avata from "../addons/storyLineComments/components/Avata";
+import Avata from "../components/Avata";
 
 const meta = {
   title: "Example/Avata",

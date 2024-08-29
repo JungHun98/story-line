@@ -3,9 +3,9 @@ import React, { useState, useEffect, memo } from "react";
 import CommentList from "./container/CommentList";
 import StoryComment from "./container/StoryComment";
 
-import supabase from "../../utils/supabase";
+import supabase from "./utils/supabase";
 import { User } from "@supabase/supabase-js";
-import { Comment } from "../../../@types/comment";
+import { Comment } from "../@types/comment";
 
 import styled from "@emotion/styled";
 import { useStorybookState } from "@storybook/api";
