@@ -31,8 +31,8 @@ const CommentAddon = () => {
 
   return (
     <Box>
-      <CommentList />
-      <StoryComment isLogin={userInfo !== null} />
+      <CommentList userInfo={userInfo} />
+      <StoryComment userInfo={userInfo} />
     </Box>
   );
 };

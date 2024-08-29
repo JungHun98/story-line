@@ -6,6 +6,10 @@ import CommentBox from "./CommentBox";
 import { User } from "@supabase/auth-js/dist/module/lib/types";
 import styled from "@emotion/styled";
 
+interface Props {
+  userInfo: User | null;
+}
+
 const Box = styled.div`
   flex: 1;
   padding: 10px;
@@ -16,9 +20,8 @@ const Box = styled.div`
   }
 `;
 
-function CommentList() {
+function CommentList({ userInfo }: Props) {
   const [commentList, setCommentList] = useState<Comment[]>([]);
-  const [userInfo, setUserInfo] = useState<User | null>(null);
 
   const state = useStorybookState();
 
@@ -37,9 +40,6 @@ function CommentList() {
 
       const comments: Comment[] = data!;
       setCommentList(comments);
-
-      const userInfo = await supabase.auth.getUser();
-      setUserInfo(userInfo.data.user);
     };
 
     init();

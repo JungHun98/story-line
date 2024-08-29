@@ -4,9 +4,10 @@ import EditButton from "../components/EditButton";
 import styled from "@emotion/styled";
 import LoginButton from "../components/LoginButton";
 import supabase from "../../../utils/supabase";
+import { User } from "@supabase/supabase-js";
 
 interface Props {
-  isLogin: boolean;
+  userInfo: User | null;
 }
 
 const Box = styled.div`
@@ -18,8 +19,8 @@ const Box = styled.div`
 
 const ButtonBox = styled.div``;
 
-function StoryComment({ isLogin }: Props) {
-  // 로그인
+function StoryComment({ userInfo }: Props) {
+  const isLogin = userInfo !== null;
 
   const googleSignIn = () => {
     supabase.auth.signInWithOAuth({
@@ -33,8 +34,7 @@ function StoryComment({ isLogin }: Props) {
     });
   };
 
-  // open close toggle
-  // post 요청 예외상황 처리
+  const createComment = () => {};
 
   return (
     <Box>
