@@ -5,8 +5,10 @@ import StoryComment from "./container/StoryComment";
 
 import supabase from "../../utils/supabase";
 import { User } from "@supabase/supabase-js";
+import { Comment } from "../../../@types/comment";
 
 import styled from "@emotion/styled";
+import { useStorybookState } from "@storybook/api";
 
 const Box = styled.div`
   display: flex;
@@ -18,6 +20,23 @@ const Box = styled.div`
 
 const CommentAddon = () => {
   const [userInfo, setUserInfo] = useState<User | null>(null);
+  const [commentList, setCommentList] = useState<Comment[]>([]);
+
+  const state = useStorybookState();
+
+  useEffect(() => {
+    const init = async () => {
+      let { data, error } = await supabase
+        .from("Comment")
+        .select("*")
+        .eq("story_id", state.storyId);
+
+      const comments: Comment[] = data!;
+      setCommentList(comments);
+    };
+
+    init();
+  }, [state.storyId]);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -31,8 +50,12 @@ const CommentAddon = () => {
 
   return (
     <Box>
-      <CommentList userInfo={userInfo} />
-      <StoryComment userInfo={userInfo} />
+      <CommentList commentList={commentList} userInfo={userInfo} />
+      <StoryComment
+        userInfo={userInfo}
+        commentList={commentList}
+        setCommentList={setCommentList}
+      />
     </Box>
   );
 };

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import styled from "@emotion/styled";
 
 interface Props {
   isLogin: boolean;
+  value: string;
+  onChange: ChangeEventHandler<HTMLTextAreaElement>;
 }
+
 const Box = styled.div`
   width: 80%;
   height: auto;
@@ -30,10 +33,10 @@ const Input = styled.textarea`
   resize: none;
 `;
 
-function TextArea({ isLogin }: Props) {
+function TextArea({ isLogin, value, onChange }: Props) {
   return (
     <Box>
-      <Input disabled={!isLogin} />
+      <Input disabled={!isLogin} onChange={onChange} value={value} />
     </Box>
   );
 }
