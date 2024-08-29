@@ -6,6 +6,7 @@ interface Props {
   id: number;
   content: string;
   isSameUser: boolean;
+  deleteComment: (id: number) => void;
 }
 
 const Container = styled.div`
@@ -31,9 +32,7 @@ const ButtonBox = styled.div`
   margin-left: 10px;
 `;
 
-function Comment({ id, content, isSameUser }: Props) {
-  const deleteComment = () => {};
-
+function Comment({ id, content, isSameUser, deleteComment }: Props) {
   return (
     <Container>
       <ContentBox>
@@ -41,7 +40,12 @@ function Comment({ id, content, isSameUser }: Props) {
       </ContentBox>
       {isSameUser ? (
         <ButtonBox>
-          <EditButton innerText="삭제" onClick={() => {}} />
+          <EditButton
+            innerText="삭제"
+            onClick={() => {
+              deleteComment(id);
+            }}
+          />
         </ButtonBox>
       ) : null}
     </Container>

@@ -8,6 +8,7 @@ interface Props {
   imageSrc: string;
   content: string;
   isSameUser: boolean;
+  deleteComment: (id: number) => void;
 }
 
 const Box = styled.div`
@@ -17,11 +18,22 @@ const Box = styled.div`
   margin-bottom: 5px;
 `;
 
-function CommentBox({ id, content, imageSrc, isSameUser }: Props) {
+function CommentBox({
+  id,
+  content,
+  imageSrc,
+  isSameUser,
+  deleteComment,
+}: Props) {
   return (
     <Box>
       <Avata imageSrc={imageSrc} />
-      <Comment id={id} content={content} isSameUser={isSameUser} />
+      <Comment
+        id={id}
+        content={content}
+        isSameUser={isSameUser}
+        deleteComment={deleteComment}
+      />
     </Box>
   );
 }

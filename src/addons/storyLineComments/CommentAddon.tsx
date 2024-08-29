@@ -29,8 +29,8 @@ const CommentAddon = () => {
       let { data, error } = await supabase
         .from("Comment")
         .select("*")
-        .eq("story_id", state.storyId);
-
+        .eq("story_id", state.storyId)
+        .is("del", false);
       const comments: Comment[] = data!;
       setCommentList(comments);
     };
@@ -50,7 +50,11 @@ const CommentAddon = () => {
 
   return (
     <Box>
-      <CommentList commentList={commentList} userInfo={userInfo} />
+      <CommentList
+        commentList={commentList}
+        userInfo={userInfo}
+        setCommentList={setCommentList}
+      />
       <StoryComment
         userInfo={userInfo}
         commentList={commentList}
