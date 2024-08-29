@@ -11,7 +11,7 @@ const Box = styled.div`
 function LoginButton({ onClick }: Props) {
   return (
     <Box onClick={onClick}>
-      <img src="../src/addons/storyLineComments/assets/image.png" />
+      <img src="../src/addons/assets/image.png" />
     </Box>
   );
 }
